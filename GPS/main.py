@@ -1,18 +1,38 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.utils import platform
+from kivymd.uix.dialog import MDDialog
 
 
 class Gps(BoxLayout):
     my_lat = 0
     my_lon = 0
     def run(self):
-        pass
+        if platform == 'android':
+            from android.permissions import Permission, request_permissions
 
+            def callback(permission, result):
+                if all([res for res in results]):
+                    print("Got all permissions")
+                else:
+                    print("did not get all permissions")
+
+            request_permissions([Permission.ACCESS_COARSE_LOCATION, Permission.ACCESS_FINE_LOCATION], callback())
 
     def update_position(self, *args, **kwargs):
         self.my_lat = kwargs['lat']
         self.my_lon = kwargs['lon']
+
+    def on_auth_status(self, general_status, status_message):
+        if general_status == 'provider-enabled':
+            pass
+        else:
+            self.open_gps_access_popup()
+    def open_gps_access_popup(self):
+        dialog = MDDialog(title="GPS ERROR", text="You need to enable gps access!")
+        dialog.size_hint = [.8, .8]
+        dialog.pos_hint = {'center_x': .5, 'center_y' :.5}
+        dialog.open()
 
     def OnSubmit(self):
       
