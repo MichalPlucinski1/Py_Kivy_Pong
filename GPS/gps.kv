@@ -1,0 +1,24 @@
+<Button>:
+    background_color:0.96, 0.9, 0.65, 0.75
+
+
+
+<Gps>:
+    orientation: 'vertical'
+    spacing: 20
+    padding: 100
+
+    Label:
+        id: OutputLabel
+        size_hint_y: None
+        font_size: 32
+
+    Button:
+        text:'Submit'
+        size_hint_y: None
+        size_hint_x: 1
+        font_size: 32
+        on_release: root.OnSubmit()
+
+
+
