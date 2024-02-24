@@ -1,0 +1,33 @@
+<TestGrid>:
+
+    email: email
+    password: password
+
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+        padding: 100
+        spacing: 30
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text:'email'
+
+            TextInput:
+                id: email
+
+            Label:
+                text:'Password'
+
+            TextInput:
+                id: password
+                password: True
+
+        Button: 
+            text: 'Submit'
+            size_hint: 1,0.5
+            background_color: 0.83, 0.69, 0.3, 0.90
+            on_press:root.btn()

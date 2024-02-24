@@ -1,0 +1,38 @@
+<Button>:
+    background_color:0.96, 0.9, 0.65, 0.75
+
+
+
+<MyBoxLayout>:
+    orientation: 'vertical'
+    spacing: 20
+    padding: 100
+
+    Label:
+        id: OutputLabel
+        size_hint_y: None
+        font_size: 32
+    TextInput:
+        size_hint_y: None
+        id:TextInput
+        font_size: 32
+        text:'text'
+        height:100
+
+    Button:
+        text:'Submit'
+        size_hint_y: None
+        size_hint_x: 1
+        font_size: 32
+        on_release: root.OnSubmit()
+
+<BoxLayoutDemo>:
+    Button:
+        text:'Button'
+    Button:
+        text:'another Button'
+        background_color: 0.83,0.69,0.22, 0.75
+        font_size: 45
+
+    
+
